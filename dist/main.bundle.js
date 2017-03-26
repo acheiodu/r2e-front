@@ -24,10 +24,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var AppService = (function () {
     function AppService(http) {
         this.http = http;
+        this.base_url = "https://r2e.mybluemix.net";
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
     }
     AppService.prototype.getClient = function () {
-        return this.http.get('http://localhost:3000/api/clientes/001', this.headers).map(function (response) { return response.json(); });
+        return this.http.get(this.base_url + '/api/clientes/001', this.headers).map(function (response) { return response.json(); });
     };
     AppService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
@@ -36,7 +37,7 @@ var AppService = (function () {
     return AppService;
     var _a;
 }());
-//# sourceMappingURL=C:/Workspace/r2e-front/src/app.service.js.map
+//# sourceMappingURL=C:/bluehack/r2e-front/src/app.service.js.map
 
 /***/ }),
 
@@ -71,7 +72,7 @@ if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment *
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=C:/Workspace/r2e-front/src/main.js.map
+//# sourceMappingURL=C:/bluehack/r2e-front/src/main.js.map
 
 /***/ }),
 
@@ -115,7 +116,7 @@ var AppComponent = (function () {
     return AppComponent;
     var _a;
 }());
-//# sourceMappingURL=C:/Workspace/r2e-front/src/app.component.js.map
+//# sourceMappingURL=C:/bluehack/r2e-front/src/app.component.js.map
 
 /***/ }),
 
@@ -167,7 +168,7 @@ var AppModule = (function () {
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=C:/Workspace/r2e-front/src/app.module.js.map
+//# sourceMappingURL=C:/bluehack/r2e-front/src/app.module.js.map
 
 /***/ }),
 
@@ -183,7 +184,7 @@ var AppModule = (function () {
 var environment = {
     production: false
 };
-//# sourceMappingURL=C:/Workspace/r2e-front/src/environment.js.map
+//# sourceMappingURL=C:/bluehack/r2e-front/src/environment.js.map
 
 /***/ }),
 
@@ -208,7 +209,7 @@ module.exports = module.exports.toString();
 /***/ 457:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"title\">{{title}}</div>\n<div class=\"button\" (click)=\"getClientData()\">Get</div>\n<br>\n<div class=\"client\" *ngIf=\"client\">\n  <div class=\"info\">Nome: {{client.name}}</div>\n  <div class=\"info\">Endereço: {{client.address}}</div>\n  <div class=\"info\" *ngIf=\"client.addressComplement\">Complemento: {{client.addressComplement}}</div>\n  <div class=\"info\">Número de Caso: {{client.caseNumber}}</div>\n</div>\n"
+module.exports = "<div class=\"title\">{{title}}</div>\r\n<div class=\"button\" (click)=\"getClientData()\">Get</div>\r\n<br>\r\n<div class=\"client\" *ngIf=\"client\">\r\n  <div class=\"info\">Nome: {{client.name}}</div>\r\n  <div class=\"info\">Endereço: {{client.address}}</div>\r\n  <div class=\"info\" *ngIf=\"client.addressComplement\">Complemento: {{client.addressComplement}}</div>\r\n  <div class=\"info\">Número de Caso: {{client.caseNumber}}</div>\r\n</div>\r\n"
 
 /***/ }),
 
