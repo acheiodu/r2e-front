@@ -4,6 +4,7 @@
     cursor: pointer;
     display: inline-block;
     font-family: 'Open Sans', sans-serif;
+    margin-right: 20px;
     padding: 10px;
 }
 

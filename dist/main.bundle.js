@@ -30,6 +30,9 @@ var AppService = (function () {
     AppService.prototype.getClient = function () {
         return this.http.get(this.base_url + '/api/clientes/001', this.headers).map(function (response) { return response.json(); });
     };
+    AppService.prototype.insertClient = function () {
+        return this.http.get(this.base_url + '/db/clientes/001', this.headers).map(function (response) { return response.json(); });
+    };
     AppService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === 'function' && _a) || Object])
@@ -37,7 +40,7 @@ var AppService = (function () {
     return AppService;
     var _a;
 }());
-//# sourceMappingURL=C:/bluehack/r2e-front/src/app.service.js.map
+//# sourceMappingURL=C:/Workspace/r2e-front/src/app.service.js.map
 
 /***/ }),
 
@@ -72,7 +75,7 @@ if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment *
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=C:/bluehack/r2e-front/src/main.js.map
+//# sourceMappingURL=C:/Workspace/r2e-front/src/main.js.map
 
 /***/ }),
 
@@ -99,11 +102,15 @@ var AppComponent = (function () {
         this.appService = appService;
         this.title = 'R2E';
     }
-    AppComponent.prototype.getClientData = function () {
+    AppComponent.prototype.getClient = function () {
         var _this = this;
         console.log("Getting client data.");
         this.appService.getClient().
             subscribe(function (clientJSON) { return _this.client = clientJSON; });
+    };
+    AppComponent.prototype.insertClient = function () {
+        console.log("Inserting client data.");
+        this.appService.insertClient().subscribe(function (response) { return console.log(response); });
     };
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["U" /* Component */])({
@@ -116,7 +123,7 @@ var AppComponent = (function () {
     return AppComponent;
     var _a;
 }());
-//# sourceMappingURL=C:/bluehack/r2e-front/src/app.component.js.map
+//# sourceMappingURL=C:/Workspace/r2e-front/src/app.component.js.map
 
 /***/ }),
 
@@ -168,7 +175,7 @@ var AppModule = (function () {
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=C:/bluehack/r2e-front/src/app.module.js.map
+//# sourceMappingURL=C:/Workspace/r2e-front/src/app.module.js.map
 
 /***/ }),
 
@@ -184,7 +191,7 @@ var AppModule = (function () {
 var environment = {
     production: false
 };
-//# sourceMappingURL=C:/bluehack/r2e-front/src/environment.js.map
+//# sourceMappingURL=C:/Workspace/r2e-front/src/environment.js.map
 
 /***/ }),
 
@@ -196,7 +203,7 @@ exports = module.exports = __webpack_require__(189)();
 
 
 // module
-exports.push([module.i, ".button {\r\n    background-color: rgb(204, 204, 204);\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    display: inline-block;\r\n    font-family: 'Open Sans', sans-serif;\r\n    padding: 10px;\r\n}\r\n\r\n.client {\r\n    background-color: rgb(204, 204, 204);\r\n    border-radius: 5px;\r\n    display: inline-block;\r\n    font-family: 'Open Sans', sans-serif;\r\n    margin: 20px 0px;\r\n    padding: 10px;\r\n}\r\n\r\n.info {\r\n    margin: 5px 0px;\r\n}\r\n\r\n.title {\r\n    font-family: 'Open Sans', sans-serif;\r\n    font-size: 50px;\r\n    font-weight: lighter;\r\n    margin: 20px 0px;\r\n}", ""]);
+exports.push([module.i, ".button {\r\n    background-color: rgb(204, 204, 204);\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    display: inline-block;\r\n    font-family: 'Open Sans', sans-serif;\r\n    margin-right: 20px;\r\n    padding: 10px;\r\n}\r\n\r\n.client {\r\n    background-color: rgb(204, 204, 204);\r\n    border-radius: 5px;\r\n    display: inline-block;\r\n    font-family: 'Open Sans', sans-serif;\r\n    margin: 20px 0px;\r\n    padding: 10px;\r\n}\r\n\r\n.info {\r\n    margin: 5px 0px;\r\n}\r\n\r\n.title {\r\n    font-family: 'Open Sans', sans-serif;\r\n    font-size: 50px;\r\n    font-weight: lighter;\r\n    margin: 20px 0px;\r\n}", ""]);
 
 // exports
 
@@ -209,7 +216,7 @@ module.exports = module.exports.toString();
 /***/ 457:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"title\">{{title}}</div>\r\n<div class=\"button\" (click)=\"getClientData()\">Get</div>\r\n<br>\r\n<div class=\"client\" *ngIf=\"client\">\r\n  <div class=\"info\">Nome: {{client.name}}</div>\r\n  <div class=\"info\">Endereço: {{client.address}}</div>\r\n  <div class=\"info\" *ngIf=\"client.addressComplement\">Complemento: {{client.addressComplement}}</div>\r\n  <div class=\"info\">Número de Caso: {{client.caseNumber}}</div>\r\n</div>\r\n"
+module.exports = "<div class=\"title\">{{title}}</div>\r\n<div class=\"button\" (click)=\"getClient()\">Get</div>\r\n<div class=\"button\" (click)=\"insertClient()\">Insert</div>\r\n<br>\r\n<div class=\"client\" *ngIf=\"client\">\r\n  <div class=\"info\">Nome: {{client.name}}</div>\r\n  <div class=\"info\">Endereço: {{client.address}}</div>\r\n  <div class=\"info\" *ngIf=\"client.addressComplement\">Complemento: {{client.addressComplement}}</div>\r\n  <div class=\"info\">Caso: {{client.caseNumber}}</div>\r\n</div>\r\n"
 
 /***/ }),
 

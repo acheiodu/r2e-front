@@ -14,10 +14,15 @@ export class AppComponent {
 
   constructor(private appService: AppService) {}
 
-  getClientData() {
+  getClient() {
     console.log("Getting client data.");
     this.appService.getClient().
     subscribe(clientJSON => this.client = clientJSON);
+  }
+
+  insertClient() {
+    console.log("Inserting client data.");
+    this.appService.insertClient().subscribe(response => console.log(response));
   }
 
 }

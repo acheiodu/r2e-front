@@ -16,4 +16,8 @@ export class AppService {
 		return this.http.get(this.base_url + '/api/clientes/001', this.headers).map(response => response.json());
   }
 
+  insertClient(): Observable<any> {
+		return this.http.get(this.base_url + '/db/clientes/001', this.headers).map(response => response.json());
+  }
+
 }

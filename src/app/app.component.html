@@ -1,9 +1,10 @@
 <div class="title">{{title}}</div>
-<div class="button" (click)="getClientData()">Get</div>
+<div class="button" (click)="getClient()">Get</div>
+<div class="button" (click)="insertClient()">Insert</div>
 <br>
 <div class="client" *ngIf="client">
   <div class="info">Nome: {{client.name}}</div>
   <div class="info">Endereço: {{client.address}}</div>
   <div class="info" *ngIf="client.addressComplement">Complemento: {{client.addressComplement}}</div>
-  <div class="info">Número de Caso: {{client.caseNumber}}</div>
+  <div class="info">Caso: {{client.caseNumber}}</div>
 </div>
