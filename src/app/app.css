@@ -76,6 +76,17 @@
     width: 1280px;
 }
 
+.flagged-case {
+    background-color: rgb(209, 33, 188);
+    color: rgb(255, 255, 255);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    font-size: 20px;
+    line-height: 50px;
+    margin: 10px 0px;
+    text-align: center;
+}
+
 .info {
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
@@ -117,6 +128,13 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
     font-size: 25px;
+}
+
+.text-area {
+    width: 100%;
+    color: rgb(150, 150, 150);
+    margin: 10px 0px;
+    padding-top: 20px;
 }
 
 .title {

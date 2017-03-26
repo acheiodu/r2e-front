@@ -5,66 +5,66 @@
   <div class="product-container">
     <div class="product-title">Produto</div>
       <md-input-container class="input-container">
-        <input mdInput placeholder="Descrição">
+        <input mdInput placeholder="Descrição" value={{product.description}}>
       </md-input-container><br>
       <md-input-container class="input-container">
-        <input mdInput placeholder="Início do Contrato">
+        <input mdInput placeholder="Início do Contrato" value={{product.startDate}}>
       </md-input-container>
       <div class="button">Salvar</div>
-      <div class="button">Buscar</div>
-
+      <div class="button" (click)="searchProduct()">Buscar</div>
     </div>
   <div class="client-container">
     <div class="client-info">
       <div class="client-title">Cliente</div>
       <md-input-container class="input-container">
-        <input mdInput placeholder="Nome">
+        <input mdInput placeholder="Nome" value={{client.name}}>
       </md-input-container><br>
       <md-input-container class="input-container-left">
-        <input mdInput placeholder="Telefone">
+        <input mdInput placeholder="Telefone" value={{client.phone}}>
       </md-input-container>
       <md-input-container class="input-container-right">
-        <input mdInput placeholder="Email">
+        <input mdInput placeholder="Email" value={{client.email}}>
       </md-input-container>
       <md-input-container class="input-container-left">
-        <input mdInput placeholder="CPF">
+        <input mdInput placeholder="CPF" value={{client.cpf}}>
       </md-input-container>
       <md-input-container class="input-container-right">
-        <input mdInput placeholder="Sexo">
+        <input mdInput placeholder="Sexo" value={{client.gender}}>
       </md-input-container>
       <md-input-container class="input-container">
-        <input mdInput placeholder="Endereço">
+        <input mdInput placeholder="Endereço" value={{client.address}}>
       </md-input-container><br>
       <md-input-container class="input-container-left">
-        <input mdInput placeholder="Cidade">
+        <input mdInput placeholder="Cidade" value={{client.city}}>
       </md-input-container>
       <md-input-container class="input-container-right">
-        <input mdInput placeholder="País">
+        <input mdInput placeholder="País" value={{client.country}}>
       </md-input-container>
       <div class="button">Salvar</div>
-      <div class="button">Buscar</div>
+      <div class="button" (click)="searchClient()">Buscar</div>
     </div>
   </div>
   <div class="case-container">
+    <div class="flagged-case" *ngIf="flaggedCase">Caso o cliente esteja insatisfeito transfira a ligação para o setor de Relacionamento com o Cliente.</div>
     <div class="case-info">
       <div class="case-title">Caso</div>
       <md-input-container class="input-container">
-        <input mdInput placeholder="Número de Caso">
+        <input mdInput placeholder="Número de Caso" value={{case.id}}>
       </md-input-container><br>
       <md-input-container class="input-container-left">
-        <input mdInput placeholder="Tipo">
+        <input mdInput placeholder="Tipo" value={{case.type}}>
       </md-input-container>
       <md-input-container class="input-container-right">
-        <input mdInput placeholder="Assunto">
+        <input mdInput placeholder="Assunto" value={{case.reason}}>
       </md-input-container>
       <md-input-container class="input-container">
-        <input mdInput placeholder="Descrição">
+        <input mdInput placeholder="Descrição" value={{case.description}}>
       </md-input-container><br>
-      <div class="button-light">Salvar Caso Técnico</div>
+      <div class="button-light" (click)="flagCase()">Salvar Caso Técnico</div>
       <md-input-container class="input-container">
-        <textarea mdInput placeholder="Observações"></textarea>
+        <textarea mdInput class="text-area" placeholder="Observações" value={{case.observation}}></textarea>
       </md-input-container>
       <div class="button">Salvar</div>
-      <div class="button">Buscar</div>
+      <div class="button" (click)="searchCase()">Buscar</div>
     </div>
   </div>
