@@ -11,18 +11,19 @@ export class AppComponent {
 
   title = 'R2E';
   client: any;
+  product: string;
 
   constructor(private appService: AppService) {}
 
   getClient() {
-    console.log("Getting client data.");
+    console.log("Getting client data...");
     this.appService.getClient().
     subscribe(clientJSON => this.client = clientJSON);
   }
 
   insertClient() {
-    console.log("Inserting client data.");
-    this.appService.insertClient().subscribe(response => console.log(response));
+    console.log("Inserting client data...");
+    this.appService.insertClient().subscribe();
   }
 
 }
