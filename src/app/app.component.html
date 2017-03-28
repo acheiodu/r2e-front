@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="title">R2E - Heat Indicator</div>
+  <div class="title">Risk Profile Tracker</div>
 </div>
 <div class="container">
   <div class="product-container">
@@ -64,7 +64,7 @@
       <md-input-container class="input-container">
         <textarea mdInput class="text-area" placeholder="Observações" value={{case.observation}}></textarea>
       </md-input-container>
-      <div class="button">Salvar</div>
+      <div class="button" (click)="insertClient()">Salvar</div>
       <div class="button" (click)="searchCase()">Buscar</div>
     </div>
   </div>
